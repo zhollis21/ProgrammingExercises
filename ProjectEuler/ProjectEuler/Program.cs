@@ -12,5 +12,5 @@ while (true)
     var _ = problem();
 
     stopwatch.Stop();
-    Console.WriteLine($"Execution Time: {stopwatch.Elapsed.TotalSeconds:F3} seconds\n");
+    Console.WriteLine($"Execution Time: {stopwatch.Elapsed.TotalSeconds:F4} seconds\n");
 }

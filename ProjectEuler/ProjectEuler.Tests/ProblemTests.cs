@@ -1,0 +1,35 @@
+namespace ProjectEuler.Tests;
+
+public class ProblemTests
+{
+    [SetUp]
+    public void Setup()
+    {
+    }
+
+    [Test]
+    public void Problem1()
+    {
+        // Arrange
+        const int expectedResult = 233168;
+
+        // Act
+        int actualResult = Problems.Problem1();
+
+        // Assert
+        Assert.That(actualResult, Is.EqualTo(expectedResult));
+    }
+
+    [Test]
+    public void Problem2()
+    {
+        // Arrange
+        const int expectedResult = 4613732;
+
+        // Act
+        int actualResult = Problems.Problem2();
+
+        // Assert
+        Assert.That(actualResult, Is.EqualTo(expectedResult));
+    }
+}

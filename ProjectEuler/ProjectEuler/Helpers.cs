@@ -11,7 +11,8 @@ public static class Helpers
 {
     private static readonly Dictionary<int, Func<object>> _problemMap = new()
     {
-        { 1, () => Problems.Problem1() }
+        { 1, () => Problems.Problem1() },
+        { 2, () => Problems.Problem2() },
     };
 
     public static Func<object> GetProblem()
