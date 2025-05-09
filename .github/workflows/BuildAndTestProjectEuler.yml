@@ -3,7 +3,11 @@
 
 name: Build and Test Project Euler
 
-on: [push, pull_request]
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
 
 jobs:
   build:
