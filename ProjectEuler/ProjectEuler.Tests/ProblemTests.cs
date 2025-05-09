@@ -11,7 +11,7 @@ public class ProblemTests
     public void Problem1()
     {
         // Arrange
-        const int expectedResult = 233168;
+        const int expectedResult = 233_168;
 
         // Act
         int actualResult = Problems.Problem1();
@@ -24,7 +24,7 @@ public class ProblemTests
     public void Problem2()
     {
         // Arrange
-        const int expectedResult = 4613732;
+        const int expectedResult = 4_613_732;
 
         // Act
         int actualResult = Problems.Problem2();
