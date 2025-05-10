@@ -59,6 +59,8 @@ public class Problems
 
     public static int Problem3()
     {
+        Console.WriteLine(ProblemSummaries.Problem3);
+
         const long number = 600_851_475_143;
         int maxFactor = (int)Math.Sqrt(number);
 
