@@ -32,4 +32,17 @@ public class ProblemTests
         // Assert
         Assert.That(actualResult, Is.EqualTo(expectedResult));
     }
+
+    [Test]
+    public void Problem3()
+    {
+        // Arrange
+        const int expectedResult = 6_857;
+
+        // Act
+        int actualResult = Problems.Problem3();
+
+        // Assert
+        Assert.That(actualResult, Is.EqualTo(expectedResult));
+    }
 }

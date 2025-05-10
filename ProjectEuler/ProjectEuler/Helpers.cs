@@ -13,6 +13,7 @@ public static class Helpers
     {
         { 1, () => Problems.Problem1() },
         { 2, () => Problems.Problem2() },
+        { 3, () => Problems.Problem3() },
     };
 
     public static Func<object> GetProblem()

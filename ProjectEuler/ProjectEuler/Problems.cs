@@ -56,4 +56,35 @@ public class Problems
         Console.WriteLine($"\nThe sum of the even values are: {sum:N0}");
         return sum;
     }
+
+    public static int Problem3()
+    {
+        const long number = 600_851_475_143;
+        int maxFactor = (int)Math.Sqrt(number);
+
+        List<int> primeNumbers = [];
+
+        // We only loop over odd numbers which is why we have excluded 2 from the prime list
+        for (int i = 3; i < maxFactor; i += 2)
+        {
+            // If our current number is not a factor, skip it
+            if (number % i != 0)
+            {
+                continue;
+            }
+
+            // If our current number is evenly divisible by one of our prime numbers, skip it 
+            if(primeNumbers.Any(prime => i % prime == 0))
+            {
+                continue;
+            }
+
+            primeNumbers.Add(i);
+        }
+
+        int largestPrimeFactor = primeNumbers.Max();
+
+        Console.WriteLine($"\nThe largest prime factor is {largestPrimeFactor:N0}");
+        return largestPrimeFactor;
+    }
 }
