@@ -14,6 +14,9 @@ public static class Helpers
         { 1, () => Problems.Problem1() },
         { 2, () => Problems.Problem2() },
         { 3, () => Problems.Problem3() },
+        { 4, () => Problems.Problem4() },
+        { 5, () => Problems.Problem5() },
+        { 6, () => Problems.Problem6() }
     };
 
     public static Func<object> GetProblem()
@@ -40,5 +43,24 @@ public static class Helpers
             var problemList = string.Join(", ", _problemMap.Keys);
             Console.WriteLine($"\nThe problems that have solutions are: {problemList}");
         }
+    }
+
+    public static bool IsPalindrome(string text)
+    {
+        int frontIndex = 0;
+        int backIndex = text.Length - 1;
+
+        while (frontIndex < backIndex)
+        {
+            if (text[frontIndex] != text[backIndex])
+            {
+                return false;
+            }
+
+            frontIndex++;
+            backIndex--;
+        }
+
+        return true;
     }
 }

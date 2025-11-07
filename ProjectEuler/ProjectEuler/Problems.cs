@@ -89,4 +89,105 @@ public class Problems
         Console.WriteLine($"\nThe largest prime factor is {largestPrimeFactor:N0}");
         return largestPrimeFactor;
     }
+
+    public static int Problem4()
+    {
+        Console.WriteLine(ProblemSummaries.Problem4);
+
+        var largestPalindrome = 0;
+
+        for (int i = 999; i > 99; i--)
+        {
+            for (int j = 999; j > 99; j--)
+            {
+                int product = i * j;
+
+                // Don't even bother checking if it's a palendrome if it's not larger
+                if (product < largestPalindrome)
+                {
+                    continue;
+                }
+
+                if (Helpers.IsPalindrome(product.ToString()))
+                {
+                    largestPalindrome = product;
+                }
+            }
+        }
+
+        Console.WriteLine($"\nThe largest palindrome is {largestPalindrome:N0}");
+        return largestPalindrome;
+    }
+
+    public static int Problem5()
+    {
+        Console.WriteLine(ProblemSummaries.Problem5);
+
+        for (int dividend = 20; true; dividend++)
+        {
+            for (int divisor = 19; divisor > 1; divisor--)
+            {
+                if (dividend % divisor != 0)
+                {
+                    break;
+                }
+
+                if (divisor == 2)
+                {
+                    Console.WriteLine($"\nThe smallest multiple is {dividend:N0}");
+                    return dividend;
+                }
+            }
+        }
+    }
+
+    public static int Problem6()
+    {
+        Console.WriteLine(ProblemSummaries.Problem6);
+
+        int sumOfSquares = 0;
+        int squareOfSum = 0;
+
+        for (int i = 1; i <= 100; i++)
+        {
+            sumOfSquares += i * i;
+            squareOfSum += i;
+        }
+
+        // For squareOfSum, we use the loop to add up all the numbers and then multiply it by itself for the square
+        squareOfSum *= squareOfSum;
+
+        int difference = squareOfSum - sumOfSquares;
+
+        Console.WriteLine($"\nThe difference is {difference:N0}");
+        return difference;
+    }
+
+    public static int Problem7()
+    {
+        Console.WriteLine(ProblemSummaries.Problem7);
+
+        return 0;
+    }
+
+    public static long Problem8()
+    {
+        Console.WriteLine(ProblemSummaries.Problem8);
+
+        return 0;
+    }
+
+    public static long Problem9()
+    {
+        Console.WriteLine(ProblemSummaries.Problem9);
+
+        return 0;
+    }
+
+    public static long Problem10()
+    {
+        Console.WriteLine(ProblemSummaries.Problem10);
+
+        return 0;
+    }
 }
