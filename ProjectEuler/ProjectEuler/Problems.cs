@@ -167,7 +167,10 @@ public class Problems
     {
         Console.WriteLine(ProblemSummaries.Problem7);
 
-        return 0;
+        int answer = Helpers.GetNthPrimeNumber(10_001);
+
+        Console.WriteLine($"\nThe number is {answer:N0}");
+        return answer;
     }
 
     public static long Problem8()

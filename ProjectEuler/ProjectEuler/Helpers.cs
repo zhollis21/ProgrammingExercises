@@ -72,4 +72,55 @@ public static class Helpers
 
         return true;
     }
+
+    // These are reused between problems so we only have to calculate them once
+    private static HashSet<int> PrimeNumbers { get; set; } = [ 2, 3 ];
+    private static int _maxPrimeChecked = 3;
+
+    public static bool IsPrimeNumber(int number)
+    {
+        // If we have already calculated the prime numbers up to this number
+        // then we don't need to calculate anything we can just check our list
+        if (number <= _maxPrimeChecked)
+        {
+            return PrimeNumbers.Contains(number);
+        }
+
+        // Otherwise, we will keep calculating prime numbers
+        // until we find one equal to or greater than our number
+        for (int i = _maxPrimeChecked + 2; _maxPrimeChecked < number; i += 2)
+        {
+            if (PrimeNumbers.Any(prime => i % prime == 0))
+            {
+                continue;
+            }
+
+            PrimeNumbers.Add(i);
+            _maxPrimeChecked = i;
+
+            if (i == number)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Gets the Nth position in the prime numbers list
+    /// </summary>
+    /// <param name="nth">This starts with 1 instead of 0</param>
+    public static int GetNthPrimeNumber(int nth)
+    {
+        int stepSize = 10_000;
+        int primeCheckStep = _maxPrimeChecked + stepSize;
+        while (PrimeNumbers.Count < nth)
+        {
+            IsPrimeNumber(primeCheckStep);
+            primeCheckStep += stepSize;
+        }
+
+        return PrimeNumbers.Order().ElementAt(nth - 1);
+    }
 }
