@@ -89,9 +89,9 @@ public class ProblemTests
     public void Problem_07()
     {
         // Arrange
-        const int expectedResult = 104_743;
+        const long expectedResult = 104_743;
         // Act
-        int actualResult = Problems.Problem7();
+        long actualResult = Problems.Problem7();
         // Assert
         Assert.That(actualResult, Is.EqualTo(expectedResult));
     }
@@ -122,7 +122,7 @@ public class ProblemTests
     public void Problem10()
     {
         // Arrange
-        const long expectedResult = 2_875_013_194;
+        const long expectedResult = 142_913_828_922;
         // Act
         long actualResult = Problems.Problem10();
         // Assert

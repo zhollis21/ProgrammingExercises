@@ -74,10 +74,20 @@ public static class Helpers
     }
 
     // These are reused between problems so we only have to calculate them once
-    private static HashSet<int> PrimeNumbers { get; set; } = [ 2, 3 ];
-    private static int _maxPrimeChecked = 3;
+    /// <summary>
+    /// Gets the current set of prime numbers that have computed.
+    /// Use <see cref="IsPrimeNumber" /> and <see cref="GetNthPrimeNumber" /> to calculate more prime numbers.
+    /// </summary>
+    /// <remarks>
+    /// The set is initialized with the values 2 and 3 and may be extended as additional primes are
+    /// calculated. The collection is shared and reused to improve performance when prime numbers are needed in multiple
+    /// operations.
+    /// </remarks>
+    public static List<long> PrimeNumbers { get; private set; } = [ 2, 3 ];
+    private static long _maxPrimeChecked = 3;
 
-    public static bool IsPrimeNumber(int number)
+
+    public static bool IsPrimeNumber(long number)
     {
         // If we have already calculated the prime numbers up to this number
         // then we don't need to calculate anything we can just check our list
@@ -88,9 +98,9 @@ public static class Helpers
 
         // Otherwise, we will keep calculating prime numbers
         // until we find one equal to or greater than our number
-        for (int i = _maxPrimeChecked + 2; _maxPrimeChecked < number; i += 2)
+        for (long i = _maxPrimeChecked + 2; _maxPrimeChecked < number; i += 2)
         {
-            if (PrimeNumbers.Any(prime => i % prime == 0))
+            if (!IsPrime(i))
             {
                 continue;
             }
@@ -107,20 +117,39 @@ public static class Helpers
         return false;
     }
 
+    private static bool IsPrime(long number)
+    {
+        foreach (long prime in PrimeNumbers)
+        {
+            // If prime is higher than the square root, no point in checking
+            if (prime * prime > number)
+            {
+                return true;
+            }
+
+            if (number % prime == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     /// <summary>
     /// Gets the Nth position in the prime numbers list
     /// </summary>
     /// <param name="nth">This starts with 1 instead of 0</param>
-    public static int GetNthPrimeNumber(int nth)
+    public static long GetNthPrimeNumber(int nth)
     {
         int stepSize = 10_000;
-        int primeCheckStep = _maxPrimeChecked + stepSize;
+        long primeCheckStep = _maxPrimeChecked + stepSize;
         while (PrimeNumbers.Count < nth)
         {
             IsPrimeNumber(primeCheckStep);
             primeCheckStep += stepSize;
         }
 
-        return PrimeNumbers.Order().ElementAt(nth - 1);
+        return PrimeNumbers[nth - 1];
     }
 }

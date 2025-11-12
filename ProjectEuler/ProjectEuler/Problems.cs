@@ -163,11 +163,11 @@ public class Problems
         return difference;
     }
 
-    public static int Problem7()
+    public static long Problem7()
     {
         Console.WriteLine(ProblemSummaries.Problem7);
 
-        int answer = Helpers.GetNthPrimeNumber(10_001);
+        long answer = Helpers.GetNthPrimeNumber(10_001);
 
         Console.WriteLine($"\nThe number is {answer:N0}");
         return answer;
@@ -177,6 +177,7 @@ public class Problems
     {
         Console.WriteLine(ProblemSummaries.Problem8);
 
+        Console.WriteLine($"\nThe number is {0:N0}");
         return 0;
     }
 
@@ -184,6 +185,7 @@ public class Problems
     {
         Console.WriteLine(ProblemSummaries.Problem9);
 
+        Console.WriteLine($"\nThe number is {0:N0}");
         return 0;
     }
 
@@ -191,6 +193,14 @@ public class Problems
     {
         Console.WriteLine(ProblemSummaries.Problem10);
 
-        return 0;
+        const int MAX_PRIME_VALUE = 2_000_000;
+
+        // Make sure the prime list includes all numbers up to 2 million
+        Helpers.IsPrimeNumber(MAX_PRIME_VALUE);
+
+        var sum = Helpers.PrimeNumbers.Where(p => p < MAX_PRIME_VALUE).Sum();
+
+        Console.WriteLine($"\nThe sum is {sum:N0}");
+        return sum;
     }
 }
