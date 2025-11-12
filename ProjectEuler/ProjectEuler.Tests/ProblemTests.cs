@@ -8,7 +8,7 @@ public class ProblemTests
     }
 
     [Test]
-    public void Problem1()
+    public void Problem_01()
     {
         // Arrange
         const int expectedResult = 233_168;
@@ -21,7 +21,7 @@ public class ProblemTests
     }
 
     [Test]
-    public void Problem2()
+    public void Problem_02()
     {
         // Arrange
         const int expectedResult = 4_613_732;
@@ -34,7 +34,7 @@ public class ProblemTests
     }
 
     [Test]
-    public void Problem3()
+    public void Problem_03()
     {
         // Arrange
         const int expectedResult = 6_857;
@@ -47,7 +47,7 @@ public class ProblemTests
     }
 
     [Test]
-    public void Problem4()
+    public void Problem_04()
     {
         // Arrange
         const int expectedResult = 906_609;
@@ -60,7 +60,7 @@ public class ProblemTests
     }
 
     [Test]
-    public void Problem5()
+    public void Problem_05()
     {
         // Arrange
         const int expectedResult = 232_792_560;
@@ -73,7 +73,7 @@ public class ProblemTests
     }
 
     [Test]
-    public void Problem6()
+    public void Problem_06()
     {
         // Arrange
         const int expectedResult = 25_164_150;
@@ -81,6 +81,50 @@ public class ProblemTests
         // Act
         int actualResult = Problems.Problem6();
 
+        // Assert
+        Assert.That(actualResult, Is.EqualTo(expectedResult));
+    }
+
+    [Test]
+    public void Problem_07()
+    {
+        // Arrange
+        const int expectedResult = 104_743;
+        // Act
+        int actualResult = Problems.Problem7();
+        // Assert
+        Assert.That(actualResult, Is.EqualTo(expectedResult));
+    }
+
+    [Test]
+    public void Problem_08()
+    {
+        // Arrange
+        const long expectedResult = 23_514_624_000;
+        // Act
+        long actualResult = Problems.Problem8();
+        // Assert
+        Assert.That(actualResult, Is.EqualTo(expectedResult));
+    }
+
+    [Test]
+    public void Problem_09()
+    {
+        // Arrange
+        const int expectedResult = 31_875_000;
+        // Act
+        int actualResult = Problems.Problem9();
+        // Assert
+        Assert.That(actualResult, Is.EqualTo(expectedResult));
+    }
+
+    [Test]
+    public void Problem10()
+    {
+        // Arrange
+        const long expectedResult = 2_875_013_194;
+        // Act
+        long actualResult = Problems.Problem10();
         // Assert
         Assert.That(actualResult, Is.EqualTo(expectedResult));
     }

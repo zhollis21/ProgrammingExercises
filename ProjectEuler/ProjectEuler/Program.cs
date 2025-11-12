@@ -5,11 +5,14 @@ Console.WriteLine("Hello. Welcome to the Project Euler solver.\n");
 
 while (true)
 {
-    var problem = Helpers.GetProblem();
+    var problems = Helpers.GetProblems();
 
     var stopwatch = Stopwatch.StartNew();
 
-    var _ = problem();
+    foreach (var problem in problems)
+    {
+        var _ = problem();
+    }
 
     stopwatch.Stop();
     Console.WriteLine($"Execution Time: {stopwatch.Elapsed.TotalSeconds:F4} seconds\n");

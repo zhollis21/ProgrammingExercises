@@ -16,14 +16,18 @@ public static class Helpers
         { 3, () => Problems.Problem3() },
         { 4, () => Problems.Problem4() },
         { 5, () => Problems.Problem5() },
-        { 6, () => Problems.Problem6() }
+        { 6, () => Problems.Problem6() },
+        { 7, () => Problems.Problem7() },
+        { 8, () => Problems.Problem8() },
+        { 9, () => Problems.Problem9() },
+        { 10, () => Problems.Problem10() },
     };
 
-    public static Func<object> GetProblem()
+    public static List<Func<object>> GetProblems()
     {
         while (true)
         {
-            Console.Write("\nPlease enter a problem number to solve: ");
+            Console.Write("\nPlease enter a problem number to solve or enter 0 to run all: ");
 
             var input = Console.ReadLine();
 
@@ -33,9 +37,14 @@ public static class Helpers
                 continue;
             }
 
+            if (problemNumber == 0)
+            {
+                return _problemMap.Values.ToList();
+            }
+
             if (_problemMap.TryGetValue(problemNumber, out var problem))
             {
-                return problem;
+                return [ problem ];
             }
 
             Console.WriteLine($"No solution has been created yet for problem {problemNumber}.");

@@ -177,7 +177,7 @@ public class Problems
         return 0;
     }
 
-    public static long Problem9()
+    public static int Problem9()
     {
         Console.WriteLine(ProblemSummaries.Problem9);
 
