@@ -13,7 +13,6 @@ This repository contains a collection of solutions to Project Euler problems imp
 - Tests
 - Project structure
 - Adding a new solution
-- Contributing
 - Status
 - License
 
@@ -81,20 +80,10 @@ To add a solution for a new Project Euler problem:
 3. Register the problem in `ProjectEuler/Helpers.cs` by adding a new entry to the `_problemMap` dictionary, mapping the problem number to the corresponding `Problems.ProblemXX` method.
 4. Add or update unit tests in the `ProjectEuler.Tests` project to assert the expected result.
 
-## Contributing
-
-Contributions are welcome. When submitting changes:
-
-- Keep problem implementations focused and testable.
-- Add or update unit tests to cover the expected output.
-- Follow the existing code style and naming conventions.
-
-If you plan a larger refactor or change, open an issue first to discuss the approach.
-
 ## Status
 
-This repository contains solutions for the first set of Project Euler problems (see `ProjectEuler/Problems.cs` for the implemented problems). Some problems are implemented with performance considerations in mind; others are straightforward, readable solutions.
+This repository currently contains solutions for problems 1–10. The repository owner maintains and may add additional solutions over time. External contributions are not accepted.
 
 ## License
 
-No license file is included in this repository. Add a `LICENSE` file at the project root if you want to make the project's license explicit.
+This repository includes a `LICENSE` file at the project root that describes the project's license. See that file for the exact terms.
