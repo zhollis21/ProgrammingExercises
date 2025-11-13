@@ -44,7 +44,7 @@ public static class Helpers
 
             if (_problemMap.TryGetValue(problemNumber, out var problem))
             {
-                return [ problem ];
+                return [problem];
             }
 
             Console.WriteLine($"No solution has been created yet for problem {problemNumber}.");
@@ -83,7 +83,7 @@ public static class Helpers
     /// calculated. The collection is shared and reused to improve performance when prime numbers are needed in multiple
     /// operations.
     /// </remarks>
-    public static List<long> PrimeNumbers { get; private set; } = [ 2, 3 ];
+    private static List<long> PrimeNumbers { get; set; } = [2, 3];
     private static long _maxPrimeChecked = 3;
 
 
@@ -151,5 +151,15 @@ public static class Helpers
         }
 
         return PrimeNumbers[nth - 1];
+    }
+
+    public static IEnumerable<long> GetPrimeNumbersUpTo(long number)
+    {
+        if (_maxPrimeChecked < number)
+        {
+            IsPrimeNumber(number); // This will add n+1 primes that we need
+        }
+
+        return PrimeNumbers.Where(p => p < number);
     }
 }

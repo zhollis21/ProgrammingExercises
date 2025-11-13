@@ -123,7 +123,7 @@ public class Problems
     {
         Console.WriteLine(ProblemSummaries.Problem5);
 
-        for (int dividend = 20; true; dividend++)
+        for (int dividend = 20; true; dividend += 20)
         {
             for (int divisor = 19; divisor > 1; divisor--)
             {
@@ -204,7 +204,25 @@ public class Problems
     {
         Console.WriteLine(ProblemSummaries.Problem9);
 
-        Console.WriteLine($"\nThe number is {0:N0}");
+        const int desiredSum = 1_000;
+
+        for (int a = 1; a < desiredSum; a++)
+        {
+            for (int b = a; b < desiredSum; b++)
+            {
+                int c = desiredSum - (a + b);
+                
+                if ((a * a) + (b * b) == c * c)
+                {
+                    int product = a * b * c;
+
+                    Console.WriteLine($"\nThe product of abc is {product:N0}");
+                    return product;
+                }
+            }
+        }
+
+        Console.WriteLine($"\nNo answer was found...");
         return 0;
     }
 
@@ -212,12 +230,9 @@ public class Problems
     {
         Console.WriteLine(ProblemSummaries.Problem10);
 
-        const int MAX_PRIME_VALUE = 2_000_000;
+        const int maxPrimeValue = 2_000_000;
 
-        // Make sure the prime list includes all numbers up to 2 million
-        Helpers.IsPrimeNumber(MAX_PRIME_VALUE);
-
-        var sum = Helpers.PrimeNumbers.Where(p => p < MAX_PRIME_VALUE).Sum();
+        var sum = Helpers.GetPrimeNumbersUpTo(maxPrimeValue).Sum();
 
         Console.WriteLine($"\nThe sum is {sum:N0}");
         return sum;
