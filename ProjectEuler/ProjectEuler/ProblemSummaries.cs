@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectEuler;
+
 public static class ProblemSummaries
 {
     public static string Problem1 => @"

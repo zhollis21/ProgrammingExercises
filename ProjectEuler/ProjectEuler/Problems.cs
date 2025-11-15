@@ -76,7 +76,7 @@ public class Problems
             }
 
             // If our current number is evenly divisible by one of our prime numbers, skip it 
-            if(primeNumbers.Any(prime => i % prime == 0))
+            if (primeNumbers.Any(prime => i % prime == 0))
             {
                 continue;
             }
@@ -211,7 +211,7 @@ public class Problems
             for (int b = a; b < desiredSum; b++)
             {
                 int c = desiredSum - (a + b);
-                
+
                 if ((a * a) + (b * b) == c * c)
                 {
                     int product = a * b * c;
